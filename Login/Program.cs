@@ -13,9 +13,9 @@ byte option = byte.Parse(Console.ReadLine());
 
 // Get Credentials
 Console.Write("Enter username: ");
-string username = Console.ReadLine();
+string? username = Console.ReadLine();
 Console.Write("Enter password: ");
-string password = Console.ReadLine();
+string? password = Console.ReadLine();
 
 // Option for registering user
 if (option == 1)
@@ -29,19 +29,19 @@ if (option == 1)
 // Option for logging in
 else if (option == 2)
 {
-    // Gets every line in the text file and stores each line as a string array called Lines
+    // Reads all lines from the text file and stores each line in a string array called lines
     string[] lines = File.ReadAllLines(textFile);
     bool validated = false;
-    
-    // Loops through each array and is manipulated as a string called line
+
+    // Loops through each line in the lines array
     foreach (string line in lines)
     {
-        // Splits the username and password by a ':' and stores them as string arrays
+        // Splits each line by ':' and stores the parts in a string array
         string[] parts = line.Split(':');
-        // Validates the Username and Password with the .txt file
+        // Validates the username and password with the entries in the text file
         validated = (parts[0] == username && parts[1] == password) ? true : false;
     }
-    // Simple display string for output
-    string displayString = (validated) ? "Your Details Were Authenticated!" : "Sorry, The Details You Entered Were Incorrect. Please Try Again!";
+    // Displays an appropriate message based on the validation result
+    string displayString = validated ? "Your Details Were Authenticated!" : "Sorry, The Details You Entered Were Incorrect. Please Try Again!";
     Console.WriteLine(displayString);
 }
