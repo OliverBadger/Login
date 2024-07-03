@@ -38,8 +38,8 @@ else if (option == 2)
     {
         // Splits each line by ':' and stores the parts in a string array
         string[] parts = line.Split(':');
-        // Validates the username and password with the entries in the text file
-        validated = (parts[0] == username && parts[1] == password) ? true : false;
+        // Validates the username and password with the entries in the text file & breaks if true
+        if(parts[0] == username && parts[1] == password) { validated = true; break; }
     }
     // Displays an appropriate message based on the validation result
     string displayString = validated ? "Your Details Were Authenticated!" : "Sorry, The Details You Entered Were Incorrect. Please Try Again!";
