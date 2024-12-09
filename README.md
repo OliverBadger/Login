@@ -1,8 +1,8 @@
-#Login Script
+# Login Script
 
 This console application in C# allows users to log in with existing credentials stored in users.txt. If the credentials are not found, users are prompted to register.
 
-#Usage
+# Usage
 
 Run the application.
 Enter your username and password.
